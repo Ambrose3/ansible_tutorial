@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install apache2 package
+    apt:
+      name: apache2
+  - name: install net-tools package
+    apt:
+      name: net-tools
+  - name: update repository index
+    apt: 
+       update_cache: yes
