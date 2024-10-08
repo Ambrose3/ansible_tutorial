@@ -1,2 +1,5 @@
+[zabbix_server]
 192.168.1.120
+
+[web_server]
 192.168.1.121
