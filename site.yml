@@ -1,0 +1,21 @@
+---
+
+- hosts: web_server
+  become: true
+  tasks:
+
+  - name: install apache and php for ubuntu servers
+    tags: apache,ubuntu,php
+    apt:
+      name:
+        - apache2
+        - php
+      state: latest
+  - name: copy thanh.html file for website
+    tags: apache, apache2,php
+    copy: 
+       src: thanh.html
+       dest: /var/www/html/index.html
+       owner: root
+       group: root
+       mode: 0644
