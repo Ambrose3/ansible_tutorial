@@ -19,3 +19,19 @@
        owner: root
        group: root
        mode: 0644
+
+- hosts: web_server
+  become: true
+  tasks:
+
+  - name: install ubzip
+    apt:
+      name: unzip
+  - name: install terraform
+    unarchive: 
+      src: ...
+      dest: /usr/local/bin
+      remote_src: yes
+      mote: 0755
+      owner: root
+      group: root
