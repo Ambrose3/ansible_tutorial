@@ -1,0 +1,11 @@
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Remove SSH key for new user
+    authorized_key:
+      user: root
+      state: absent
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOSRL4ek1q9Htznf6KtW/MXiEv6Emjom0c2/bgxH73Jr ansible"
+
+

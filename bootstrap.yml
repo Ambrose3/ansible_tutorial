@@ -1,0 +1,23 @@
+- hosts: all
+  become: true
+  tasks:
+
+  - name: create new user
+    tags: always
+    user:
+      name: max
+      groups: root
+
+  - name: add ssh_key for max
+    tags: always
+    authorized_key:
+    key: ""
+
+  - name: add sudoers file for max
+    tags: always
+    copy:
+      src: sudoer_max
+      dest: /etc/sudoers.d/max
+      owner: root
+      group: root
+      mode: 0440

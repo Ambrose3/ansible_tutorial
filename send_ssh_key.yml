@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Copy ssh public key to authorized_keys
+    authorized_key:
+      user: root
+      state: present
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOSRL4ek1q9Htznf6KtW/MXiEv6Emjom0c2/bgxH73Jr ansible"
+      path: /root/.ssh/authorized_keys
