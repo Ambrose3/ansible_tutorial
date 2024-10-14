@@ -1,0 +1,4 @@
+- name: add ssh key for max
+  authorized_key:
+    user: max
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOSRL4ek1q9Htznf6KtW/MXiEv6Emjom0c2/bgxH73Jr ansible"
