@@ -2,33 +2,26 @@
 
 - hosts: all
   become: true
-  pre_tasks:
+  tasks:
 
-  - name: update respository index (CentOS)
+  - name: update resposiroty index (CentOS)
     tags: always
     dnf:
       update_cache: yes
-    change_when: false
-    when: ansible_distribution =="CentOS"
+    when: ansible_distribution == "CentOS"
 
-  - name: update resposiroty index (Ubuntu)
+  - name: update resposiroty index
     tags: always
     apt:
       update_cache: yes
-    change_when: false
     when: ansible_distribution == "Ubuntu"
 
-  - host: all
-    become: true
-    roles:
-      - base
+- hosts: web_server
+  become: true
+  roles:
+  - web_server
 
-  - hosts: web_server
-    become: true
-    roles:
-      - web_server
-
-  - hosts: zabbix_server
-    become: true
-    roles:
-      - zabbix_server
+- hosts: zabbix_server
+  become: true
+  roles:
+  - zabbix_server
