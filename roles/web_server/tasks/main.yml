@@ -2,8 +2,8 @@
   tags: apache,centos,httpd
   dnf:
     name:
-      - httpd
-      - php
+      - "{{ apache-package_name }}"
+      - "{{ php_package_name }}"
     state: latest
   when: ansible_distribution == "CentOS"
 
